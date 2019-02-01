@@ -1,4 +1,4 @@
-package com.example.cs4500_sp19_the_businesss_side.models;
+package com.example.cs4500_sp19_the_business_side.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
