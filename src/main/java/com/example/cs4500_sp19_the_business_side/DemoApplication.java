@@ -1,4 +1,4 @@
-package com.example.cs4500_sp19_the_businesss_side;
+package com.example.cs4500_sp19_the_business_side;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
