@@ -26,4 +26,13 @@ public class ServiceCategoryService {
     public ServiceCategory createServiceCategory(@RequestBody ServiceCategory serviceCategory) {
         return serviceRepository.save(serviceCategory);
     }
+
+    @PutMapping("/api/categories/{serviceCategoryId}")
+    public ServiceCategory updateServiceCategory(
+            @PathVariable("serviceCategoryId") Integer id,
+            @RequestBody ServiceCategory serviceUpdates) {
+        ServiceCategory serviceCategory = serviceRepository.findServiceCategoryById(id);
+        serviceCategory.setServiceCategoryName(serviceUpdates.getServiceCategoryName());
+        return serviceRepository.save(serviceCategory);
+    }
 }
