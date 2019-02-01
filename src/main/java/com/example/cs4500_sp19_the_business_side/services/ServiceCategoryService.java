@@ -35,4 +35,10 @@ public class ServiceCategoryService {
         serviceCategory.setServiceCategoryName(serviceUpdates.getServiceCategoryName());
         return serviceRepository.save(serviceCategory);
     }
+
+    @DeleteMapping("/api/categories/{serviceCategoryId}")
+    public void deleteServiceCategory(
+            @PathVariable("serviceCategoryId") Integer id) {
+        serviceRepository.deleteById(id);
+    }
 }
