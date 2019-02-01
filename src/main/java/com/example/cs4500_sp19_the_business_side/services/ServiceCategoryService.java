@@ -4,6 +4,7 @@ import com.example.cs4500_sp19_the_business_side.models.ServiceCategory;
 import com.example.cs4500_sp19_the_business_side.repositories.ServiceCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,4 +18,9 @@ public class ServiceCategoryService {
         return serviceRepository.findAllServiceCategories();
     }
 
+    @GetMapping("/api/categories/{serviceCategoryId}")
+    public ServiceCategory findServiceCategoryById(
+            @PathVariable("serviceCategoryId") Integer id) {
+        return serviceRepository.findServiceCategoryById(id);
+    }
 }
