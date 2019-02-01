@@ -1,4 +1,4 @@
-package com.example.cs4500_sp19_the_businesss_side;
+package com.example.cs4500_sp19_the_business_side;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
