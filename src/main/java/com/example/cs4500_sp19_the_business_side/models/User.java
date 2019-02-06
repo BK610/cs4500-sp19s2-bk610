@@ -17,6 +17,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    private String role;
     @ManyToMany(mappedBy="providers")
     private List<Service> services;
     public List<Service> getServices() {
@@ -63,5 +64,11 @@ public class User {
     }
     public void setId(Integer id) {
         this.id = id;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
 }
