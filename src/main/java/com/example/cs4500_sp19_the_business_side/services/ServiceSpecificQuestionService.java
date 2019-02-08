@@ -41,5 +41,9 @@ public class ServiceSpecificQuestionService {
         question.setPossibleChoices(questionUpdates.getPossibleChoices());
         return serviceSpecificQuestionRepository.save(question);
     }
-
+    @DeleteMapping("/api/servicequestions/{questionId}")
+    public void deleteServiceSpecificQuestion(
+            @PathVariable("questionId") Integer id) {
+        serviceSpecificQuestionRepository.deleteById(id);
+    }
 }
