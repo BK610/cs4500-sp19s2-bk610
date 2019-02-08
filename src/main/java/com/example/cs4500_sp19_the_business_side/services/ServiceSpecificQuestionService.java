@@ -31,5 +31,15 @@ public class ServiceSpecificQuestionService {
     public ServiceSpecificQuestion createServiceSpecificQuestion(@RequestBody ServiceSpecificQuestion question) {
         return serviceSpecificQuestionRepository.save(question);
     }
+    @PutMapping("/api/servicequestions/{questionId}")
+    public ServiceSpecificQuestion updateServiceSpecificQuestion(
+            @PathVariable("questionId") Integer id,
+            @RequestBody ServiceSpecificQuestion questionUpdates) {
+        ServiceSpecificQuestion question = serviceSpecificQuestionRepository.findServiceSpecificQuestionById(id);
+        question.setQuestionType(questionUpdates.getQuestionType());
+        question.setDefaultValue(questionUpdates.getDefaultValue());
+        question.setPossibleChoices(questionUpdates.getPossibleChoices());
+        return serviceSpecificQuestionRepository.save(question);
+    }
 
 }
