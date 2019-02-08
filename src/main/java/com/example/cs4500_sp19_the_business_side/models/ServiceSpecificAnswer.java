@@ -20,6 +20,7 @@ public class ServiceSpecificAnswer {
 	private Integer maxRangeAnswer;
 	private Integer minRangeAnswer;
 	private Integer choiceAnswer;
+	private String openEndedAnswer;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -70,6 +71,14 @@ public class ServiceSpecificAnswer {
         this.choiceAnswer = choiceAnswer;
     }
     
+    public String getOpenEndedAnswer() {
+    	return openEndedAnswer;
+    }
+    
+    public void setOpenEndedAnswer(String openEndedAnswer) {
+    	this.openEndedAnswer = openEndedAnswer;
+    }
+    
     public ServiceSpecificQuestion getServiceSpecificQuestion() {
     	return serviceSpecificQuestion;
     }
@@ -85,4 +94,5 @@ public class ServiceSpecificAnswer {
     public void setProvider(User provider) {
     	this.provider = provider;
     }
+    
 }
