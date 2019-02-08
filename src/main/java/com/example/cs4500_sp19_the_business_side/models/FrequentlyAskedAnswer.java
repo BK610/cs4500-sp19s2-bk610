@@ -1,29 +1,47 @@
 package com.example.cs4500_sp19_the_business_side.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="frequently_asked_questions")
-public class FrequentlyAskedQuestion {
+@Table(name="frequently_asked_answers")
+public class FrequentlyAskedAnswer {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private String title;
+    private String answer;
+    @ManyToOne
+    @JsonIgnore
+    private FrequentlyAskedQuestion frequentlyAskedQuestion;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
+    @Transient
     private String question;
-    @OneToMany(mappedBy="frequentlyAskedQuestion")
-    private List<FrequentlyAskedAnswer> answers;
-    public List<FrequentlyAskedAnswer> getAnswers() {
-        return answers;
+    public String getQuestion() {
+        return frequentlyAskedQuestion.getQuestion();
     }
-    public void setAnswers(List<FrequentlyAskedAnswer> answers) {
-        this.answers = answers;
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public FrequentlyAskedQuestion getFrequentlyAskedQuestion() {
+        return frequentlyAskedQuestion;
+    }
+    public void setFrequentlyAskedQuestion(FrequentlyAskedQuestion frequentlyAskedQuestion) {
+        this.frequentlyAskedQuestion = frequentlyAskedQuestion;
     }
     public Integer getId() {
         return id;
@@ -31,16 +49,10 @@ public class FrequentlyAskedQuestion {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getTitle() {
-        return title;
+    public String getAnswer() {
+        return answer;
     }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getQuestion() {
-        return question;
-    }
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
