@@ -7,10 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.example.cs4500_sp19_the_business_side.models.Service;
+import com.example.cs4500_sp19_the_business_side.models.ServiceCategory;
 
 public interface ServiceRepository extends CrudRepository<Service, Integer> {
 	@Query(value="SELECT service FROM Service service")
 	public List<Service> findAllServices();
 	@Query(value="SELECT service FROM Service service WHERE service.id=:id")
 	public Service findServiceById(@Param("id") Integer id);
+	@Query(value="SELECT serviceCategories FROM Service service WHERE service.id=:id")
+	public List<ServiceCategory> findAllCategoriesForService(@Param("id") Integer id);
 }
