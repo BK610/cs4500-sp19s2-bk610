@@ -36,7 +36,7 @@ public class ServiceSpecificQuestion {
         return serviceCategory;
     }
 
-    public void setServiceCategory() {
+    public void setServiceCategory(ServiceCategory serviceCategory) {
         this.serviceCategory = serviceCategory;
     }
 
