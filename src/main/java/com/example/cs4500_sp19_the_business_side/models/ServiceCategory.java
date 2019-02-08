@@ -1,28 +1,20 @@
 package com.example.cs4500_sp19_the_business_side.models;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-
->>>>>>> origin
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.example.cs4500_sp19_the_business_side.models.Service;
-=======
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
->>>>>>> origin
+
+import com.example.cs4500_sp19_the_business_side.models.Service;
 
 @Entity
 @Table(name="service_categories")
