@@ -66,4 +66,12 @@ public class ServiceSpecificQuestion {
     public void setPossibleChoices(String possibleChoices) {
         this.possibleChoices = possibleChoices;
     }
+    
+    public List<ServiceSpecificAnswer> getServiceSpecificAnswers() {
+    	return serviceSpecificAnswers;
+    }
+    
+    public void setServiceSpecificAnswers(List<ServiceSpecificAnswer> serviceSpecificAnswers) {
+    	this.serviceSpecificAnswers = serviceSpecificAnswers;
+    }
 }
