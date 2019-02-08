@@ -27,5 +27,9 @@ public class ServiceSpecificQuestionService {
             @PathVariable("questionId") Integer id) {
         return serviceSpecificQuestionRepository.findServiceSpecificQuestionById(id);
     }
+    @PostMapping("/api/servicequestions")
+    public ServiceSpecificQuestion createServiceSpecificQuestion(@RequestBody ServiceSpecificQuestion question) {
+        return serviceSpecificQuestionRepository.save(question);
+    }
 
 }
