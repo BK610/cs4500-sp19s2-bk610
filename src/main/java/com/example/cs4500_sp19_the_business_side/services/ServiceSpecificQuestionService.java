@@ -22,5 +22,10 @@ public class ServiceSpecificQuestionService {
     public List<ServiceSpecificQuestion> findAllServiceSpecificQuestions() {
         return serviceSpecificQuestionRepository.findAllServiceSpecificQuestions();
     }
+    @GetMapping("/api/servicequestions/{questionId}")
+    public ServiceSpecificQuestion findServiceSpecificQuestionById(
+            @PathVariable("questionId") Integer id) {
+        return serviceSpecificQuestionRepository.findServiceSpecificQuestionById(id);
+    }
 
 }
