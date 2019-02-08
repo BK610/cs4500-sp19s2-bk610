@@ -1,5 +1,7 @@
 package com.example.cs4500_sp19_the_business_side.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +20,8 @@ public class ServiceSpecificQuestion {
     private Integer id;
     @ManyToOne //TODO bwehner correct?
     private ServiceCategory serviceCategory;
-//    @OneToMany TODO uncomment once service specific answers is implemented
-//    private List<ServiceSpecificAnswer> serviceSpecificAnswers;
+    @OneToMany
+    private List<ServiceSpecificAnswer> serviceSpecificAnswers;
     @Enumerated(EnumType.STRING)
     private QuestionType questionType;
     private String defaultValue;
