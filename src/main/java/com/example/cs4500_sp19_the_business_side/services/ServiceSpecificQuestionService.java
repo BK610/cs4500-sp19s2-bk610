@@ -11,10 +11,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.cs4500_sp19_the_business_side.models.Service;
-import com.example.cs4500_sp19_the_business_side.repositories.ServiceRepository;
+import com.example.cs4500_sp19_the_business_side.models.ServiceSpecificQuestion;
+import com.example.cs4500_sp19_the_business_side.repositories.ServiceSpecificQuestionRepository;
 
 @RestController
 public class ServiceSpecificQuestionService {
+    @Autowired
+    ServiceSpecificQuestionRepository serviceSpecificQuestionRepository;
+    @GetMapping("/api/servicequestions")
+    public List<ServiceSpecificQuestion> findAllServiceSpecificQuestions() {
+        return serviceSpecificQuestionRepository.findAllServiceSpecificQuestions();
+    }
 
 }
