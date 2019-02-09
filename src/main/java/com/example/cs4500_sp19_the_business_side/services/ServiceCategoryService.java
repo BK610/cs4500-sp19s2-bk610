@@ -1,6 +1,7 @@
 package com.example.cs4500_sp19_the_business_side.services;
 
 import com.example.cs4500_sp19_the_business_side.models.ServiceCategory;
+import com.example.cs4500_sp19_the_business_side.models.Service;
 import com.example.cs4500_sp19_the_business_side.repositories.ServiceCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,5 +42,11 @@ public class ServiceCategoryService {
     public void deleteServiceCategory(
             @PathVariable("serviceCategoryId") Integer id) {
         serviceRepository.deleteById(id);
+    }
+
+    @GetMapping("/api/service-categories/{cid}/services")
+    public List<Service> findAllServiceForServiceCategory(
+            @PathVariable("cid") Integer cid) {
+        return serviceRepository.findAllServicesForServiceCategory(cid);
     }
 }
