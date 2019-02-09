@@ -35,13 +35,15 @@ public class FrequentlyAskedAnswerService {
             @PathVariable("answerId") Integer id,
             @RequestBody FrequentlyAskedAnswer frequentlyAskedAnswerUpdates) {
         FrequentlyAskedAnswer answer = frequentlyAskedAnswerRepository.findFrequentlyAskedAnswerById(id);
+        answer.setQuestion(frequentlyAskedAnswerUpdates.getQuestion());
+        answer.setUser(frequentlyAskedAnswerUpdates.getUser());
+        answer.setFrequentlyAskedQuestion(frequentlyAskedAnswerUpdates.getFrequentlyAskedQuestion());
         answer.setAnswer(frequentlyAskedAnswerUpdates.getAnswer());
-        answer.setTitle(frequentlyAskedAnswerUpdates.getTitle());
         return frequentlyAskedAnswerRepository.save(answer);
     }
 
-    @DeleteMapping("/api/faqs/{faqId}")
-    public void deleteFrequentlyAskedAnswer(@PathVariable("faqId") Integer id) {
+    @DeleteMapping("/api/faqanswers/{answerId}")
+    public void deleteFrequentlyAskedAnswer(@PathVariable("answerId") Integer id) {
         frequentlyAskedAnswerRepository.deleteById(id);
     }
 }
