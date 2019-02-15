@@ -18,8 +18,9 @@ public class ServiceSpecificQuestion {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne //TODO bwehner correct?
+    @ManyToOne
     private ServiceCategory serviceCategory;
+    private String questionTitle;
     @OneToMany
     private List<ServiceSpecificAnswer> serviceSpecificAnswers;
     @Enumerated(EnumType.STRING)
@@ -41,6 +42,14 @@ public class ServiceSpecificQuestion {
 
     public void setServiceCategory(ServiceCategory serviceCategory) {
         this.serviceCategory = serviceCategory;
+    }
+
+    public String getQuestionTitle() {
+        return questionTitle;
+    }
+
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle;
     }
 
     public QuestionType getQuestionType() {
