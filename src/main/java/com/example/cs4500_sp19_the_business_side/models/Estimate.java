@@ -1,9 +1,9 @@
 package com.example.cs4500_sp19_the_business_side.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name="estimates")
 public class Estimate {
 
     @Id
